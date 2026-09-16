@@ -1,0 +1,21 @@
+category,metric,count,percentage,denominator,severity,description
+Referential Integrity,Transactions without merchant match,13325,66.62,20000,Critical,Transaction merchant_id is missing or absent from merchant master.
+Referential Integrity,Transactions without KYC match,13522,67.61,20000,High,Transaction user_id is missing or absent from canonical KYC users.
+Referential Integrity,Chargebacks without merchant match,1917,68.46,2800,High,Chargeback merchant_id is missing or absent from merchant master.
+Referential Integrity,Chargebacks without transaction match,193,6.89,2800,High,Chargeback transaction reference is missing or absent from transaction fact.
+Merchant Data Quality,Missing merchant category,0,0.0,6000,High,Merchant master records without a merchant category; retain as Blank in the dashboard.
+Merchant Data Quality,Missing MCC,661,11.02,6000,Medium,Merchant master records without MCC.
+Merchant Data Quality,Missing settlement account,2379,39.65,6000,High,Merchant master records without settlement account.
+Merchant Data Quality,Transactions with unavailable merchant category,13325,66.62,20000,Critical,Transaction cannot be assigned a merchant category because the merchant is unmatched or its category is blank.
+Transaction Data Quality,Missing transaction amount,0,0.0,20000,High,Transactions without amount.
+Transaction Data Quality,Missing UTR,1000,5.0,20000,High,Transactions without UTR.
+Transaction Data Quality,Missing MCC,420,2.1,20000,Medium,Transactions without MCC.
+Transaction Data Quality,Unknown transaction status,0,0.0,20000,Medium,"Statuses not mapped to Success, Failed, Pending, or Initiated."
+Transaction Data Quality,Negative transaction amount,420,2.1,20000,High,Transactions with negative amount.
+Transaction Status,Initiated transactions,220,1.1,20000,Info,Transactions explicitly marked INITIATED and kept separate from Pending.
+KYC Quality,Users with duplicate KYC records,5947,20.56,28920,High,Users with more than one KYC record.
+KYC Quality,Users with identity conflict,4739,16.39,28920,High,Users with at least one conflict flag in their KYC history.
+Chargeback Quality,Missing chargeback transaction ID,77,2.75,2800,High,Chargeback records without transaction ID.
+Chargeback Quality,Non-missing but unmatched chargeback transaction ID,116,4.14,2800,High,Chargeback transaction ID exists but does not match transaction fact.
+Chargeback Quality,Invalid reporting delay,92,3.29,2800,High,Negative reporting delay.
+Chargeback Quality,Invalid bank response delay,16,0.57,2800,High,Negative bank response delay.
